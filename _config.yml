@@ -4,11 +4,12 @@ gems:
   - jekyll-paginate
 
 # Site settings
-title: "Mediator"
+title: "CodeLife"
 description: > # this means to ignore newlines until "email:"
-   A Jekyll theme - Medium inspired
+  Never forget the feeling.
+  Never forget the passion.
 
-email: a-mail@mail.mail
+email: 779532360@qq.com
 #blog logo
 logo: "/assets/images/df_logo.jpg"
 float_logo: true # true, false (default)
@@ -16,8 +17,8 @@ float_logo: true # true, false (default)
 # blog cover
 cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
 
-name: 'Dirk Fabisch'
-author: 'Dirk Fabisch'
+name: 'SiYu Liu'
+author: 'SiYu Liu'
 author_image: "/assets/images/author.jpg"
 
 paginate:	5
@@ -25,7 +26,7 @@ paginate:	5
 url: "http://myblog.***.***" # the base hostname & protocol for your site
 baseurl: ""
 #used to display twitter cards
-twitter_handle: '@dirkfabisch'
+#twitter_handle:
 
 #fill in disqus shortname to use disqus
 #disqus: disqus-shortname
@@ -34,12 +35,12 @@ twitter_handle: '@dirkfabisch'
 
 # social icons and sharing options
 social:
-  - icon:	twitter
-    url:	https://twitter.com/dirkfabisch
-    desc: Follow me on twitter
-    share_url: http://twitter.com/share
-    share_title: ?text=
-    share_link: "&amp;url="
+#  - icon:	QQ
+#    url:	https://twitter.com/dirkfabisch
+#    desc: Follow me on twitter
+#    share_url: http://twitter.com/share
+#    share_title: ?text=
+#    share_link: "&amp;url="
 
 #  - icon:	facebook
 #    url:	https://facebook.com/???
@@ -49,7 +50,7 @@ social:
 #    share_link: "&amp;u="
 
   - icon:	github
-    url:	https://github.com/dirkfabisch
+    url:	https://github.com/liusiyuxyfx
     desc:	Fork me on github
     share_url:
     share_title:
