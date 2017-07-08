@@ -65,7 +65,9 @@ layout: default
         {% include previousAndNext.html %}
 
         <h2 id="comments">Comments</h2>
-        {% include comments.html %}
+        {% if site.intensedebate_comments %}
+        {% include intensedebate-comments.html %}
+        {% endif %}
 
 
     </div>
@@ -82,9 +84,7 @@ layout: default
                     {% if hasSimilar.size > 0 %}
                     <li><a href="#similar_posts">Similar Posts</a></li>
                     {% endif %}
-                    {% if site.intensedebate_comments %}
-                    {% include intensedebate-comments.html %}
-                    {% endif %}
+                    <li><a href="#comments">Comments</a></li>
                 </ul>
             </div>
             <!-- 其他div框放到这里 -->
