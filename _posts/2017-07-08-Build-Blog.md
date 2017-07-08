@@ -23,7 +23,10 @@ tags: jekyll
    sudo gem install boundle
    sudo apt-get install nodejes
 ```
-\n\n\n\n
+
+
+
+
 
 ---
 2.jekyll使用  
