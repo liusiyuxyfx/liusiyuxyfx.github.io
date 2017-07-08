@@ -6,6 +6,8 @@ Date: 2017-07-08
 categories: jekyll
 tags: jekyll
 ---
+* content
+{:toc}
 
     System : Linux mint 18.1
 	Tools : Githhub Pages + Jekyll
