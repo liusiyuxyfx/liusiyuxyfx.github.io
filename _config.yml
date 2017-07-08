@@ -9,15 +9,15 @@
 title: Code Life
 brief-intro: student
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://liusiyunum2.github.io" # the base hostname & protocol for your site
+url: "https://liusiyuxyfx.github.io" # the base hostname & protocol for your site
 
 permalink: /:year/:month/:day/:title/
 
 # other links
 twitter_username:
 facebook_username:
-github_username:
-email:
+github_username: liusiyuxyfx
+email: 779532360@qq.com
 weibo_username:
 zhihu_username:
 linkedIn_username:
