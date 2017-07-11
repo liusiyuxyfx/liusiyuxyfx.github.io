@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Github Pages + Jeckyll 搭建博客过程记录"
+title:  "Github Pages + Jekyll 搭建博客过程记录"
 author: SiYu Liu
 Date: 2017-07-08
 categories: jekyll
