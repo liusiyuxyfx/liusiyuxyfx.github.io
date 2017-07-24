@@ -1,8 +1,8 @@
 ---
-layout:post
-author:SiYu Liu
-categories:Pyhton
-title:Linux下利用Anaconda安装科学计算环境
+layout: post
+author: SiYu Liu
+categories: Pyhton
+title: Linux下利用Anaconda安装科学计算环境
 tags: Python Anaconda
 ---
 
