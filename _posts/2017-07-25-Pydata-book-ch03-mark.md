@@ -10,8 +10,9 @@ Ipython的功能及快捷键简记。
 
 
 
-    
-##常用键盘快捷键
+     
+## 常用键盘快捷键  
+
 |命令|说明|
 |:--|:--|
 |Ctrl-P|上一条输入的命令|
@@ -26,7 +27,8 @@ Ipython的功能及快捷键简记。
 |Ctrl-b|向后移动一个字符|
 |Ctrl-L|清屏|
 
-##常魔术命令
+## 常魔术命令  
+
 |命令|说明|
 |:--|:--|
 |%quickref|显示IPython的快速参考|
@@ -45,7 +47,8 @@ Ipython的功能及快捷键简记。
 |%who %who_is %whos|显示interactive命名空间中的定义的变量|
 |%xdel variable| 删除variable，并尝试清除其在Ipython中的对象上的一切引用|
 
-##与操作系统交互
+## 与操作系统交互  
+
 |命令|说明|
 |:--|:--|
 |!cmd|在系统shell中执行cmd|
@@ -61,7 +64,7 @@ Ipython的功能及快捷键简记。
 |%env|以dict形式返回系统环境变量|
 
 
-##绘图方面
+## 绘图方面
 * 基于Qt的富GUI控制台
 `ipython qtconsole --pylab=inline`  
 * matplotlib集成与pylab模式
