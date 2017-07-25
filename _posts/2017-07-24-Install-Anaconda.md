@@ -21,12 +21,12 @@ tags: Python Anaconda
 
 
 
-###安装Anaconda
+## 安装Anaconda
 &nbsp;&nbsp;&nbsp;在官网下载.sh文件后，通过bash执行安装程序  
 `bash Anaconda3-4.4.0-Linux-x86_64.sh`  
 一路Enter即可完成安装
 
-###conda的使用
+## conda的使用
  * 设置国内镜像
 conda 的服务器在国外，但是清华TUNA镜像有Anaconda的仓库，所以第一件事是修改conda镜像：
 ```
