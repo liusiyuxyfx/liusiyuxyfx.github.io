@@ -3,7 +3,7 @@ layout: post
 author: SiYu Liu
 categories: Pyhton
 title: 《利用python进行数据分析》第二章笔记 
-tags: Python Anaconda
+tags: Python
 ---
 
 * plot绘制的图片x的存储  
