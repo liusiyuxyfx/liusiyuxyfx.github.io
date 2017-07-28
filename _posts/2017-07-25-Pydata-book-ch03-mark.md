@@ -5,6 +5,10 @@ categories: Pyhton
 title: 《利用python进行数据分析》第三章Ipython笔记 
 tags: Python
 ---
+
+* content
+{:toc}
+
 Ipython的功能及快捷键简记。
 
 
