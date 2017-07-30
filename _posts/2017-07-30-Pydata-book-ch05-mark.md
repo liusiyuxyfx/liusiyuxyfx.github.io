@@ -2,14 +2,13 @@
 layout: post
 author: SiYu Liu
 categories: Pyhton
-title: 《利用python进行数据分析》第五章Pandas笔记 
+title: 《利用python进行数据分析》第五章Pandas笔记
 tags: Python
 ---
-
-* content
-{:toc}
-
 本篇记录了pandas的一些特性和功能
+
+
+
 
 
 
