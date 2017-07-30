@@ -11,11 +11,6 @@ tags: Python
 
 本篇记录了pandas的一些特性和功能
 
-<d>
-<d>
-<d>
-<d>
-
 
 
 
