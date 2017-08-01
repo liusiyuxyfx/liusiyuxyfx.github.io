@@ -360,7 +360,320 @@ dtype: float64
 
 #### DataFrame和Series之间的运算
 
+普通的算数运算符只能匹配到列，并且沿着行向下广播
+```python
+In [8]: series
+Out[8]: 
+b    0.0
+d    1.0
+e    2.0
+Name: Utah, dtype: float64
 
+In [9]: frame
+Out[9]: 
+          b     d     e
+Utah    0.0   1.0   2.0
+Ohio    3.0   4.0   5.0
+Texas   6.0   7.0   8.0
+Oregon  9.0  10.0  11.0
+
+In [10]: frame - series
+Out[10]: 
+          b    d    e
+Utah    0.0  0.0  0.0
+Ohio    3.0  3.0  3.0
+Texas   6.0  6.0  6.0
+Oregon  9.0  9.0  9.0
+```
+
+要想匹配行并在列上广播，必须使用算术方法。
+
+```python
+In [8]: series
+Out[8]: 
+b    0.0
+d    1.0
+e    2.0
+Name: Utah, dtype: float64
+
+In [9]: frame
+Out[9]: 
+          b     d     e
+Utah    0.0   1.0   2.0
+Ohio    3.0   4.0   5.0
+Texas   6.0   7.0   8.0
+Oregon  9.0  10.0  11.0
+
+In [10]: frame - series
+Out[10]: 
+          b    d    e
+Utah    0.0  0.0  0.0
+Ohio    3.0  3.0  3.0
+Texas   6.0  6.0  6.0
+Oregon  9.0  9.0  9.0
+```
+
+传入的轴（axis）号就是希望匹配的轴。
+
+#### 函数应用和映射
+
+Numpy的ufunc（元素级数组方法）可用于操作pandas对象。
+
+通过apply方法可以将函数应用到由各列或行所形成的一位数组上。
+
+```python
+In [15]: f = lambda x: x.max() - x.min()
+
+In [16]: frame
+Out[16]: 
+          b     d     e
+Utah    0.0   1.0   2.0
+Ohio    3.0   4.0   5.0
+Texas   6.0   7.0   8.0
+Oregon  9.0  10.0  11.0
+
+In [17]: frame.apply(f)
+Out[17]: 
+b    9.0
+d    9.0
+e    9.0
+dtype: float64
+
+In [18]: frame.apply(f, axis = 1)
+Out[18]: 
+Utah      2.0
+Ohio      2.0
+Texas     2.0
+Oregon    2.0
+dtype: float64
+```
+
+通过applymap方法可以应用元素级函数，如格式化各浮点值的字符
+
+```python
+In [19]: format = lambda x : '%.2f' % x
+
+In [20]: frame.applymap(format)
+\Out[20]: 
+           b      d      e
+Utah    0.00   1.00   2.00
+Ohio    3.00   4.00   5.00
+Texas   6.00   7.00   8.00
+Oregon  9.00  10.00  11.00
+```
+
+Series有一个应用元素级函数的map方法：
+
+#### 排序和排名
+
+要对行或列索引进行排序（按字典顺序），可用sort_index方法，它返回一个已排序的对象。
+
+* 排序（sorting）
+sort（）
+	* 对于DataFrame，则可以根据任意一个轴上的索引进行排序，只要给出axis 值，默认0.
+
+		数据默认是按升序排序的，但是若给出`ascending = False`，则可以降序排序，
+
+		by属性可已接受一个标签或者多个标签的列表，则会按照这些给出的标签进行排序
+
+	* 对于Series，可使用order方法瞥视
+	在排序时，任何缺失值默认被放到末尾。
+
+* 排名（ranking）
+
+rank（）
+排名会增设一个排名值（从1开始，一直到数组中有效数据的数量）。它跟numpy.argsort产生的间接排序索引差不多，只不过它可以根据某种规则破坏平级关系。
+
+通过method选项破坏平级关系
+|method|说明|
+|'average'|默认：在相等分组中，为各个值分配平均排名|
+|'min'|使用整个分组的最小排名|
+|'max'|使用整个分组的最大排名|
+|'first'|按值在原始数据中出现的顺序分配排名|
+
+#### 带有重复值的轴索引
+
+可索引带有多个重复标签。
+
+##汇总和计算描述统计
+
+约简方法（如sum）的选项
+
+|选项|说明|
+|--|--|
+|axis|约简的轴。DataFrame的行用0，列用1|
+|skipna|排除缺失值，默认值为True|
+|level|如果轴是层次化索引的（即MultiIndex），则根据level分组约简|
+
+|描述和统计汇总|说明|
+|--|--|
+|count|非NA值的数量|
+|describe|针对Series或各DataFrame列计算汇总统计|
+|min，max|最大最小值|
+|argmin，argmax|计算能够获取到最小值和最大值的索引位置（整数）|
+|idmin，idmax|计算能够获取到最小值和最大值的索引值|
+|quantile|计算样本的分位数（0到1）|
+|sum|总和|
+|mean|平均数|
+|median|算术中位数|
+|mad|平均绝对离差|
+|var|方差|
+|std|标准差|
+|skew|样本值的偏度（三阶矩）|
+|kurt|样本值的峰度（四阶矩）|
+|cumsum|累积和|
+|cummin，cummax|累计最大值和累计最小值|
+|cumprod|样本值的累计积|
+|diff|一阶差分（对时间序列很有用）|
+|pct_change|计算百分数变化|
+
+#### 相关系数与协方差
+Series的corr方法用于计算两个Serires中重叠的，非NA的，按索引对齐的值的相关系数，cov用于计算协方差。
+
+Dataframe的corr，cov方法用于以DataFrame的形式返回完整的相关系数或协方差矩阵
+
+DataFrame的corrwith方法可以计算其列或行跟另一个Series或DataFrame之间的相关系数。传入一个Series将返回一个相关系数值Series（针对各列进行计算）
+
+#### 唯一值，值计数，以及成员资格
+
+|方法|说明|
+|--|--|
+|isin|计算一个表示“Series各值是否包含于传入的值序列中”的布尔型数组|
+|unique|计算Series中的唯一数组，按发现的顺序返回|
+|value_counts|返回一个Series，其索引为唯一值，其值为频率，按计算数值降序排列|
+
+## 处理缺失数据
+
+NaN表示浮点和肺腑点数组中的缺失数据，他只是一个便于被检测出来的标记。
+python内置的None值也会被当做NaN处理
+
+#### Na处理方法
+
+|方法｜说明｜
+|--|--|
+|dropna|根据各标签的值中是否存在缺失数据对标签进行过滤，可通过阈值调节对缺失值的容忍度|
+|fillna|用于填充缺失数据|
+|isnull|返回一个含有布尔值的对象，这些布尔值表示那些值是缺失值NA，该对象的类型与源类型一样|
+|notnull|isnull的否定式|
+
+#### 滤除缺失数据
+
+* Series可以通过dropna方法或者布尔型索引达到此目的
+
+* DataFrame相对复杂一点，直接调用dropna方法将会默认丢弃任何含有缺失值的行。
+	* 通过`how = ‘all`'可以只丢弃全为NA的那些行。
+	* 通过`thresh = n`可以保留含有n项非Na数据的行。
+	
+#### 填充缺失数据
+
+fillna函数的参数（续）
+
+|参数|说明|
+|--|--|
+|axis|轴|
+|inplace|修改调用者对象而不产生副本|
+|limit|（对于前向和后向填充）可以连续填充的最大数量|
+
+## 层次化索引
+
+层次化索引（hierarchical indexing）是pandas的一项重要功能，它使你能在一个轴上拥有多个（两个以上）索引级别。抽象点说，它能使你以低纬度形式处理高维度数据。
+
+Series：
+
+```python
+In [38]: data = pd.Series(np.random.randn(10),
+    ...: index = [['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'd', 'd'],
+    ...:          [1, 2, 3, 1, 2, 3, 1 ,2, 2, 3]])
+
+
+In [39]: data
+Out[39]: 
+a  1    0.548957
+   2    1.007071
+   3    0.850420
+b  1    1.708313
+   2    0.674337
+   3    1.331625
+c  1   -0.043498
+   2    0.632199
+d  2    0.285033
+   3   -0.715590
+```
+
+DataFrame：
+
+```python
+In [41]: frame = pd.DataFrame(np.arange(12).reshape((4, 3)),
+    ...:                     index = [['a', 'a', 'b', 'b'], [1, 2, 1, 2]],
+    ...:                     columns = [['Ohio', 'Ohio', 'Colorado'],
+    ...:                                ['Green', 'Red', 'Green']])
+
+In [42]: frame
+Out[42]: 
+     Ohio     Colorado
+    Green Red    Green
+a 1     0   1        2
+  2     3   4        5
+b 1     6   7        8
+  2     9  10       11
+
+
+In [44]: frame.columns.names = ['state', 'color']
+In [46]: frame.index.names = ['key1', 'key2']
+
+In [47]: frame
+Out[47]: 
+state      Ohio     Colorado
+color     Green Red    Green
+key1 key2                   
+a    1        0   1        2
+     2        3   4        5
+b    1        6   7        8
+     2        9  10       11
+```
+
+具有层次化索引的Series可以和DataFrame通过unstack()和stack()相互转化，详解见第七章。
+
+#### 重排分级顺序
+
+swaplevel（）接受两个级别编号或名称，并返回一个互换了级别的新对象。
+
+Sortlevel则接受一个级别编号（类似于轴编号）并对按该级别进行排序。
+
+#### 根据级别汇总统计
+
+通过level选项可以进行汇总，默认axis = 0，可以选择行级别。
+axis = 1，可以选择列级别。
+
+#### 从数据中设置index
+
+set_index 可以把某几个标签的数据设置成行级别，而其标签则为这些级别的names。
+
+reset_index正相反。 
+
+##其他话题
+
+#### 整数索引
+
+整数索引容易产生歧义，而且确实会产生错误，如：
+
+```python
+In [55]: ser
+Out[55]: 
+0    0.0
+1    1.0
+2    2.0
+dtype: float64
+
+In [56]: ser[-1]
+```
+就会产生key_Error错误，若非整数索引就不会产生。
+
+如果需要可靠地，不考虑索引类型的，基于未知的索引，可以使用Series的iget_value(位置),和DataFrame的irow和icol方法。
+
+#### 面板数据 （Panel）
+
+略
 
 ## 注意
 
@@ -369,3 +682,8 @@ data[val]返回的是列，而data.ix[val]返回的是行。
 
 * 非重叠（overlapping）
 “飞机”和“轮机”都有“机”，所以重叠， ”高富帅“和”矮穷矬“不重叠。
+
+* ix在未来可能会被移除，可以通过`loc[行，列]`或`iloc[行]`进行索引
+
+* 按行求值，按列求值
+按行求值（axis = 1）是指将列合并，按列求值（axis = 0）是指将行合并。         
