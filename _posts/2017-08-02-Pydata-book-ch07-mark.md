@@ -490,4 +490,4 @@ Out[136]:
 |sub, subn|将字符串中所有的(sub)或前n个(subn)模式替换为指定表达式,在替换字符串中可以通过\1, \2等符号表示各分组|
 
 ### 矢量化字符串方法
-![](2017-08-02-Pydata-book-ch07-mark/Selection_001.png) 
+![矢量化字符串方法](../resources/images/2017-08-02-pydata-book-ch07-mark/Selection_001.png)  
