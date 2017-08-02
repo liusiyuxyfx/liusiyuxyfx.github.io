@@ -173,7 +173,7 @@ level2 a   6.0  NaN    5.0  NaN
 
 In [49]: pd.concat([df1, df2], axis = 1, keys = ['level1', 'level2'])
 Out[49]: 
-  level1     level2     
+  level1     level2 
      one two  three four
 a      0   1    5.0  6.0
 b      2   3    NaN  NaN
@@ -182,7 +182,7 @@ c      4   5    7.0  8.0
 In [67]: pd.concat([df1, df2], axis = 1, keys = ['level1', 'level2'], names = ['level
     ...: ', 'num'])
 Out[67]: 
-level level1     level2     
+level level1     level2 
 num      one two  three four
 a          0   1    5.0  6.0
 b          2   3    NaN  NaN
@@ -194,7 +194,6 @@ Out[68]:
 a  0  1  5.0  6.0
 b  2  3  NaN  NaN
 c  4  5  7.0  8.0
-
 ```
 
 #### concat函数的参数
