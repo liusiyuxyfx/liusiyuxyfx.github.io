@@ -1,13 +1,15 @@
 ---
-layout: default
+layout: page
 title: Books
-permalink: /books/
-icon: th-list
+permalink: /collection/
+icon: bookmark
 type: page
 ---
 
 * content
 {:toc}
+
+
 
 ## 待读
 
@@ -65,7 +67,7 @@ type: page
 |我也有一个梦想|林达|
 |历史深处的忧虑|林达|
 |带一本书去巴黎|林达|
-|总统是靠不住的|林达|历史
+|总统是靠不住的|林达|
 |绝非偶然| Elliot Aronson |
 |德商,比智商和情商更重要|布鲁斯·温斯坦|
 |作为一种发现过程的竞争|冯·哈耶克 |
