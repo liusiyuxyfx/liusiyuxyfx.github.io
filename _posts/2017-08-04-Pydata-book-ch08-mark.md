@@ -15,13 +15,13 @@ tags: Python
 
 
 
-#matplotlib API入门
+# matplotlib API入门
 
 matplotlib API函数都位于matplotlib.pyplot模块中
 
 `import matplotlib.pyplot as plt`
 
-###Figure 和 Subplot
+### Figure 和 Subplot
 
 matplotlib的图像都位于Figure对象中,可用plt.figure创建一个新的figure.
 
