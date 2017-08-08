@@ -1,7 +1,7 @@
 ---
 layout: post
 author: SiYu Liu
-categories: Pyhton
+categories: Python
 title: 《利用python进行数据分析》第七章数据规整化：清理，转换，合并，重塑
 tags: Python
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: SiYu Liu
-categories: Pyhton
+categories: Python
 title: 《利用python进行数据分析》第四章NumPy笔记 
 tags: Python
 ---

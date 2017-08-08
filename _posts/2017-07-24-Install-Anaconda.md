@@ -1,7 +1,7 @@
 ---
 layout: post
 author: SiYu Liu
-categories: Pyhton
+categories: Python
 title: Linux下利用Anaconda安装科学计算环境
 tags: Python Anaconda
 ---

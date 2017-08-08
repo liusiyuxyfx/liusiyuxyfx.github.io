@@ -1,7 +1,7 @@
 ---
 layout: post
 author: SiYu Liu
-categories: Pyhton
+categories: Python
 title: 《利用python进行数据分析》第六章数据加载,存储与文件格式
 tags: Python
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 author: SiYu Liu
-categories: Pyhton
+categories: Python
 title: 《利用python进行数据分析》第八章 绘图和可视化
 tags: Python
 ---
