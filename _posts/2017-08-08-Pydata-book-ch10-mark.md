@@ -155,3 +155,10 @@ Out[60]: <150 * Minutes>
 也可以直接传入频率字符`freq = '2h30min'
 
 #### 时间序列的基础频率
+
+![时间序列的基础频率](https://raw.githubusercontent.com/liusiyuxyfx/liusiyuxyfx.github.io/master/resources/images/2017-08-08-pydata-book-ch10-mark/s1.png)
+
+### 移动（超前和滞后）数据
+
+移动（shifting）指的是沿着时间轴将数据前移或后移。Series和DataFrame都有一个shift方法用于执行单纯的迁移或后移操作，保持索引不变。
+
