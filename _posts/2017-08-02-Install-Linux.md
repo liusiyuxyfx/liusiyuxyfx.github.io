@@ -41,3 +41,66 @@ add Control = Control_L
 ```
 $ xmodmap ~/.Xmodmap
 ```
+
+## linux mint 中文字体发虚解决方法
+
+`sudo vim /etc/fonts/conf.d/69-language-selector-zh-cn.conf `
+贴入以下代码
+
+```xml
+<?xml version="1.0"?>
+<fontconfig>
+
+<match target="pattern">
+<test qual="any" name="family">
+<string>serif</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>WenQuanYi Bitmap Song</string>
+<string>WenQuanYi Micro Hei</string>
+<string>WenQuanYi Zen Hei</string>
+<string>AR PL UMing CN</string>
+<string>AR PL ShanHeiSun Uni</string>
+<string>Bitstream Vera Serif</string>
+<string>DejaVu Serif</string>
+<string>AR PL UKai CN</string>
+<string>AR PL ZenKai Uni</string>
+</edit>
+</match> 
+<match target="pattern">
+<test qual="any" name="family">
+<string>sans-serif</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>Bitstream Vera Sans</string>
+<string>DejaVu Sans</string>
+<string>WenQuanYi Bitmap Song</string>
+<string>WenQuanYi Micro Hei</string>    
+<string>WenQuanYi Zen Hei</string>
+<string>AR PL UMing CN</string>
+<string>AR PL ShanHeiSun Uni</string>
+<string>AR PL UKai CN</string>
+<string>AR PL ZenKai Uni</string>
+</edit>
+</match> 
+<match target="pattern">
+<test qual="any" name="family">
+<string>monospace</string>
+</test>
+<edit name="family" mode="prepend" binding="strong">
+<string>Bitstream Vera Sans Mono</string>
+<string>DejaVu Sans Mono</string>
+<string>WenQuanYi Micro Hei Mono</string>
+<string>WenQuanYi Zen Hei Mono</string>
+<string>WenQuanYi Bitmap Song</string>
+<string>AR PL UMing CN</string>
+<string>AR PL ShanHeiSun Uni</string>
+<string>AR PL UKai CN</string>
+<string>AR PL ZenKai Uni</string>
+</edit>
+</match> 
+
+</fontconfig>
+```
+
+注销重启
