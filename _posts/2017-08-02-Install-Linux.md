@@ -104,3 +104,7 @@ $ xmodmap ~/.Xmodmap
 ```
 
 注销重启
+
+## 微信安装
+
+http://www.jianshu.com/p/2b8d7cc6bc35
