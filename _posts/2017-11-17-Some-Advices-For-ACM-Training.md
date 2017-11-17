@@ -254,7 +254,7 @@ https://lug.ustc.edu.cn/wiki/doc/smart-questions
 
 ------------------
 
-### 参考资料:
+## 参考资料:
 
 |link|
 |:--|
