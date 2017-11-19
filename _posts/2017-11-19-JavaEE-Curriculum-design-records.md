@@ -1,8 +1,8 @@
 ---
 layout: post
 author: SiYu Liu
-categories:JavaEE
-title: JavaEE课程设计问题记录
+categories: JavaEE
+title:  JavaEE课程设计问题记录
 tags: JavaEE
 ---
 
