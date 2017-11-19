@@ -16,7 +16,7 @@ tags: JavaEE
 
 
 
-##＃Ubuntu下使用jdbc的问题
+###   Ubuntu下使用jdbc的问题
 
 
 * **报错:**java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
